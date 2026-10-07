@@ -1,0 +1,7 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.rehan.library.model.User" %>
+<% List<User> members=(List<User>)request.getAttribute("members"); %>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Members | Library Management</title><link rel="stylesheet" href="css/style.css"></head>
+<body><div class="app"><aside class="sidebar"><div class="brand"><div>LIBRARY</div><span>MANAGEMENT</span></div><nav><a href="dashboard"><span>⌂</span> Dashboard</a><a href="books"><span>▤</span> Books</a><a href="books#add"><span>＋</span> Add Book</a><a href="issue-return"><span>↔</span> Issue / Return</a><a class="active" href="members"><span>♙</span> Members</a><a href="logout"><span>↪</span> Logout</a></nav></aside>
+<main class="content"><header class="page-head"><div><div class="eyebrow">MEMBERS</div><h1>Students</h1><p>Registered library members and student accounts.</p></div><div class="count-pill"><b><%=members.size()%></b> students</div></header>
+<section class="panel"><div class="table-wrap"><table><thead><tr><th>#</th><th>Student</th><th>Email</th><th>Account</th></tr></thead><tbody><%int n=1;for(User u:members){%><tr><td><%=n++%></td><td><div class="book-cell"><div class="avatar small-avatar"><%=u.getName().substring(0,1).toUpperCase()%></div><div><b><%=u.getName()%></b><small>Member ID #<%=u.getId()%></small></div></div></td><td><%=u.getEmail()%></td><td><span class="status returned">ACTIVE</span></td></tr><%}%></tbody></table></div></section></main></div></body></html>
