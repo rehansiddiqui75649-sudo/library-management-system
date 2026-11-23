@@ -33,7 +33,7 @@
 
         rows.forEach(function (row) {
             const cells = row.querySelectorAll("td");
-            // Checks the Availability column (5th column) or full row text
+            
             const availabilityText = (cells[4] ? cells[4].textContent : row.textContent).trim().toLowerCase();
             if (
                 (availabilityText.includes("available") && !availabilityText.includes("unavailable") && !availabilityText.includes("not available")) ||
